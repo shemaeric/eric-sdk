@@ -1,0 +1,19 @@
+{
+  "name": "eric-sdk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/shemaeric/eric-sdk",
+  "author": "shemaeric <shemaeric01@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "start:dev": "npx nodemon"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.22",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11"
+  }
+}
