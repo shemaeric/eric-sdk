@@ -1,14 +1,16 @@
-export interface SortData {
-    by: string;
-    direction: 'asc' | 'desc';
-}
-
-export interface PaginateData {
-    offset: number;
-    limit: number;
-    page: number; 
-}
-
-export interface RequestQueryData {
-    sort?: SortData;
-}
+export interface RequestQuery {
+    sort?: { sortBy: string; direction: 'asc' | 'desc' };
+    paginate?: { option: 'limit' | 'offset' | 'page'; value: number };
+    filter?: {
+      match?: { field: string; value: string }[];
+      negateMatch?: { field: string; value: string }[];
+      include?: { field: string; value: string[] }[];
+      exclude?: { field: string; value: string[] }[];
+      exists?: string[];
+      doesNotExist?: string[];
+      lessThan?: { field: string; value: string }[];
+      greaterThanOrEqual?: { field: string; value: string }[];
+      greaterThan?: { field: string; value: string }[];
+      lessThanOrEqual?: { field: string; value: string }[];
+    };
+  }
