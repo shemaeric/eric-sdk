@@ -1,1 +1,5 @@
-console.log('Hello world!');
+import SDK from './lib/sdk';
+
+export {
+    SDK
+};
