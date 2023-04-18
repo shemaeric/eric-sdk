@@ -8,3 +8,11 @@ export declare type Movie = {
     academyAwardWins: number;
     rottenTomatoesScore: number;
 }
+
+export declare type MovieQuote = {
+    _id: string;
+    dialog: string;
+    movie: string;
+    character: string;
+    id: string;
+}
