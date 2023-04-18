@@ -9,4 +9,10 @@ export class MovieService extends Base {
 
     return await this.invoke(movieUrl);
   }
+
+  public async getSingleMovie(id: string): Promise<Movie> {
+    const movieUrl = `${resources.movie}/${id}`;
+
+    return await this.invoke(movieUrl);
+  }
 }
