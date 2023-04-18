@@ -1,0 +1,19 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": { 
+    //   "no-console": 0, // Disable console.log warning
+      "semi": ["error", "always"], // Enforce semi-colon usage
+      "quotes": ["error", "single"], // Enforce single quotes
+      "@typescript-eslint/explicit-module-boundary-types": "off", // Allow implicit return types in TypeScript
+      "@typescript-eslint/no-explicit-any": "off" // Allow the use of 'any' type in TypeScript
+    }
+  }
