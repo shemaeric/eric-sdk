@@ -30,7 +30,7 @@ const config = {
   apiKey: "yourApiKey",
   baseUrl: "https://the-one-api.dev"
 }
-const sdk = new LotrClient('YOUR_API_KEY');
+const sdk = new SDK('YOUR_API_KEY');
 
 // You can then Access All Methods provided By SDK
 
