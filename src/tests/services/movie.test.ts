@@ -1,5 +1,5 @@
 import { MovieService } from "../../services";
-import { Movie } from "../../Models";
+import { Movie, MovieQuote } from "../../Models";
 
 // Mock fetch function
 function mockFetch(returnValue: unknown) {
@@ -65,5 +65,34 @@ describe("MovieService", () => {
 
     // Call getSingleMovie method and expect it to throw an error
     await expect(movieService.getSingleMovie(movieId)).rejects.toThrowError("Not Found");
+  });
+
+  test("getMovieQuote should fetch a movie quote successfully", async () => {
+    // Mock fetch response
+    const movieId = "123";
+    const movieQuote = { dialog: "One ring to rule them all." } as unknown as MovieQuote;
+    mockFetch({
+      ok: true,
+      json: () => Promise.resolve(movieQuote),
+    });
+
+    // Call getMovieQuote method
+    const actual = await movieService.getMovieQuote(movieId);
+
+    // Assert response
+    expect(actual).toEqual(movieQuote);
+
+  });
+
+  test("getMovieQuote should throw an error when fetch response is not ok", async () => {
+    // Mock fetch response
+    const movieId = "123";
+    mockFetch({
+      ok: false,
+      statusText: "Not Found",
+    });
+
+    // Call getMovieQuote method and expect it to throw an error
+    await expect(movieService.getMovieQuote(movieId)).rejects.toThrowError("Not Found");
   });
 });
