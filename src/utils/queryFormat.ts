@@ -1,21 +1,34 @@
   import { RequestQuery } from "../types";
 
+  /**
+ * Formats a URL with query parameters based on the provided `RequestQuery` object.
+ * @function
+ * @name formatUrlWithQueries
+ * @param {string} source - The source URL to be formatted.
+ * @param {RequestQuery} query - An optional `RequestQuery` object containing query parameters.
+ * @returns {string} - The formatted URL with query parameters.
+ */
   export function formatUrlWithQueries(source: string, query?: RequestQuery): string {
     let url = source;
   
+    // If no query object provided, return the original URL
     if (!query) {
         return url
     }
+
+    // Append sort query parameter if exists
     if (query.sort) {
       const { sortBy, direction } = query.sort;
       url += `?sort=${sortBy}:${direction}`;
     }
   
+    // Append paginate query parameter if exists
     if (query.paginate) {
       const { option, value } = query.paginate;
       url += `?${option}=${value}`;
     }
   
+    // Append filter query parameters if exists with their corresponding filters
     if (query.filter) {
       const {
         match,

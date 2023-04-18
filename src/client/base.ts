@@ -4,15 +4,26 @@ export type Config = {
 };
 
 export abstract class Base {
+  // Properties
   private apiKey: string;
   private baseUrl: string;
   private apiVersion = 'v2';
 
   constructor(config: Config) {
+    // Initialize configuration options
     this.apiKey = config.apiKey;
     this.baseUrl = config.baseUrl || 'https://the-one-api.dev';
   }
 
+  /**
+   * Makes an HTTP request to the API.
+   * 
+   * @template T - The type of the response data.
+   * @param {string} endpoint - The API endpoint to send the request to.
+   * @param {RequestInit} options - Optional configuration options for the request.
+   * @returns {Promise<T>} - A Promise that resolves to the response data.
+   * @throws {Error} - If the response is not successful (HTTP status not in the 200-299 range).
+   */
   protected async invoke<T>(
     endpoint: string,
     options?: RequestInit
@@ -35,6 +46,12 @@ export abstract class Base {
     return response.json();
   }
 
+  /**
+   * Formats the API endpoint URL.
+   * 
+   * @param {string} endpoint - The API endpoint.
+   * @returns {string} - The formatted URL.
+   */
   private linkFormat(endpoint: string): string {
     return `${this.baseUrl}/${this.apiVersion}/${endpoint}`;
   }

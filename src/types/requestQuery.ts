@@ -1,3 +1,9 @@
+
+/**
+ * Interface representing the request query parameters for API endpoints.
+ * @interface
+ * @name RequestQuery
+ */
 export interface RequestQuery {
     sort?: { sortBy: string; direction: 'asc' | 'desc' };
     paginate?: { option: 'limit' | 'offset' | 'page'; value: number };
