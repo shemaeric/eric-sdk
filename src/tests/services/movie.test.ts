@@ -38,4 +38,32 @@ describe("MovieService", () => {
     // Call getMovies method and expect it to throw an error
     await expect(movieService.getMovies()).rejects.toThrowError("Unauthorized");
   });
+
+  test("getSingleMovie should fetch a single movie successfully", async () => {
+    // Mock fetch response
+    const movieId = "123";
+    const movie = { name: "The Lord of the Rings: The Fellowship of the Ring" } as Movie;
+    mockFetch({
+      ok: true,
+      json: () => Promise.resolve(movie),
+    });
+
+    // Call getSingleMovie method
+    const actual = await movieService.getSingleMovie(movieId);
+
+    // Assert response
+    expect(actual).toEqual(movie);
+  });
+
+  test("getSingleMovie should throw an error when fetch response is not ok", async () => {
+    // Mock fetch response
+    const movieId = "123";
+    mockFetch({
+      ok: false,
+      statusText: "Not Found",
+    });
+
+    // Call getSingleMovie method and expect it to throw an error
+    await expect(movieService.getSingleMovie(movieId)).rejects.toThrowError("Not Found");
+  });
 });
