@@ -1,6 +1,6 @@
 {
-  "name": "eric-sdk",
-  "version": "1.0.0",
+  "name": "shema-sdk",
+  "version": "1.1.0",
   "main": "./build/index.js",
   "repository": "https://github.com/shemaeric/eric-sdk",
   "author": "shemaeric <shemaeric01@gmail.com>",

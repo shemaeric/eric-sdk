@@ -11,12 +11,12 @@ This is a TypeScript SDK for making API calls to [the Lord of the Rings API](htt
 You can install the Lord of the Rings SDK using npm or yarn:
 
 ```bash
-npm install eric-sdk
+npm install shema-sdk
 ```
 or 
 
 ```bash
-yarn add eric-sdk
+yarn add shema-sdk
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ yarn add eric-sdk
 Import the SDK in your TypeScript project:
 
 ```typescript
-import { SDK } from 'eric-sdk';
+import { SDK } from 'shema-sdk';
 
 const config = {
   apiKey: "yourApiKey",
